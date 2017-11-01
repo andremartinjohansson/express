@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title= title
+        block style
+            link(rel="stylesheet", href="/css/style.min.css")
+    body
+        block header
+            div(class="site-header")
+                img(class="header-image", src="/img/header.jpg")
+                div(class="site-info")
+                    img(class="info-img", src="/img/me.jpg")
+                    p(class="site-name") André Johansson
+                    p(class="site-description") Express Me-page
+        block navbar
+            div(class="site-navbar")
+                ul(class="navbar")
+                    li(class="nav-link")
+                        <a href="/">Home</a>
+                    li(class="nav-link")
+                        <a href="about">About</a>
+                    li(class="nav-link")
+                        <a href="report">Reports</a>
+        block main
+            main(class="main") Mainblock
+        block footer
+            div(class="site-footer")
+                p © 2017 André Johansson
