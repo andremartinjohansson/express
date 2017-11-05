@@ -1,30 +1,58 @@
 Reports
 ============================
 
-### Kmom01
+## Kmom01
+
+### Berätta utförligt om din syn på Express och Pug och hur de samverkar. Relatera till andra ramverk du jobbat med. Lyft fram de fördelar och eventuellt nackdelar du finner, eller bara notera skillnader och likheter.
+
+Det verkar väldigt smidigt och enkelt - det tog inte lång tid alls att sätta sig in i ramverket och hur Express fungerar med Pug. Jag har inte många lika ramverk att jämföra med - det enda jag kan jämföra med är Anax. Express känns mycket mindre rörigt för tillfället och mycket mer light-weight. Allting bara funkade och man behövde inte riktigt initiera och hålla på med alla moduler som i Anax.
+
+Pug kändes också väldigt enkelt, men kanske lite för enkelt? Det kan jämföras med Markdown - det är väldigt simpelt men inte alls flexibelt att jobba med vilket ofta gör det mycket svårare att implementera mer komplex kod. Jag hade inget problem med Pug i detta kursmoment, men då jag använde Markdown för mina vyer märkte jag att det blev problem att styla grejer på sidan. Skriver man ren HTML i Markdown filen, skriver den bara ut koden som text - man kan alltså inte använda HTML i Markdown här verkar det som. Det är en väldigt jobbig begränsning.
+
+Jag kan tänka mig att Pug kan ha vissa begränsningar också. Vi får se.
+
+### Berätta om din katalogstruktur och hur du organiserade din kod, hur tänkte du?
+
+Jag tog en titt på app-generatorn men använde mig inte av den direkt. Istället skapade jag strukturen själv så den liknande den från app-generatorn. Detta gjorde jag för att bland annat för att få lite bättre förståelse i hur jag kan arbeta i ramverket. Känns bättre att göra allting från scratch då. Använderman app-generatorn är det lätt att man kanske missar varför det ser ut så.
+
+Mina vyer ligger i *views/* och mina statiska filer (css, bilder, js) ligger i en mapp jag har valt att kalla *static/* iställer för public. Känns lite mer logiskt.
+
+I *app/* ligger min *app.js* som ansvarar för själva app-objektet - initiering och exportering så den kan användas i *index.js*. Min *index.js* är alltså nu mycket mindre och det enda den gör är att starta servern på rätt port.
+
+Men, jag har också en mapp *routes/* precis som strukturen från app-generatorn. Där ligger en *index.js* som för tillfället tar hand om alla routes och exporterar dem så de kan användas i *app.js*.
+
+Slutligen, *content/* innehåller alla Markdown-filer som används, och *less/* innehåller lite LESS filer som används för styling av sidan.
+
+Allting har alltså sin plats och jag tycker det är mycket bra organiserat och koden är bra modulariserad. Riktigt nöjd med det.
+
+### Använde du någon form av scaffolding som Express erbjuder?
+
+Jag testade app-generatorn, men använde inte den till mina sida. Exempelkoden var dock till stor hjälp och jag tog vissa bitar därifrån och anpassade dem för att spara lite tid. Kändes onödigt att börja om från början efter jag hade jobbat igenom artiklen, så jag strukturera min kod som i artiklen först och anpassade den sedan för att likna strukturen från app-generatorn och uppnå en lite högre kodkvalitet.
+
+### Jobbar du med Markdown för innehållet, eller annat liknande?
+
+Ja, jag testade att använda Markdown då jag från början tyckte det kunde göra det enklare och renare. Men efter problemen som uppstod med bland annat styling av sidorna, kanske jag bytar till något annat i kommande kmom.
+
+## Kmom02
 
 Text here
 
-### Kmom02
+## Kmom03
 
 Text here
 
-### Kmom03
+## Kmom04
 
 Text here
 
-### Kmom04
+## Kmom05
 
 Text here
 
-### Kmom05
+## Kmom06
 
 Text here
 
-### Kmom06
-
-Text here
-
-### Kmom07/10
+## Kmom07/10
 
 Text here

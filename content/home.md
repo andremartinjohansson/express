@@ -7,4 +7,4 @@ I have previously worked quite a bit with HTML, CSS and JavaScript. And also pla
 
 When I don’t study I often play around with web stuff anyway. But it’s often Wordpress that I do then, because it’s quicker. Otherwise, well, I’m a pretty big gamer and been playing video games since before I was ten. TV series usually takes up a lot of time as well. But, I’m also really into airplanes and astronomy. Astronomy is something I’ve found in later years, but I’ve always loved airplanes and flying since I was very small. Hoping to one day be able to get a private pilot’s license in my hometown.
 
-![Picture of me](/img/me_car.jpg)
+![Andre](/img/me_car.jpg)
