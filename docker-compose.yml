@@ -1,0 +1,23 @@
+version: "3"
+services:
+    node89:
+        build: .
+        image: node:8.9
+        ports:
+            - "3089:3000"
+        volumes:
+            - /c/Users/andré/desktop/web/dbwebb-kurser/ramverk2/me/redovisa
+    node61:
+        build: .
+        image: node:6.11
+        ports:
+            - "3061:3000"
+        volumes:
+            - /c/Users/andré/desktop/web/dbwebb-kurser/ramverk2/me/redovisa
+    node48:
+        build: .
+        image: node:4.8
+        ports:
+            - "3048:3000"
+        volumes:
+            - /c/Users/andré/desktop/web/dbwebb-kurser/ramverk2/me/redovisa
