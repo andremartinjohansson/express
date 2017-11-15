@@ -1,23 +1,35 @@
 version: "3"
 services:
     node89:
-        build: .
-        image: node:8.9
+        image: "node:8.9"
+        user: "node"
+        working_dir: /home/node/app/
         ports:
-            - "3089:3000"
+            - "3089:3089"
+        environment:
+            - DBWEBB_PORT=3089
         volumes:
-            - /c/Users/andré/desktop/web/dbwebb-kurser/ramverk2/me/redovisa
+            - ./:/home/node/app
+        command: "npm start"
     node61:
-        build: .
-        image: node:6.11
+        image: "node:6.11"
+        user: "node"
+        working_dir: /home/node/app/
         ports:
-            - "3061:3000"
+            - "3061:3061"
+        environment:
+            - DBWEBB_PORT=3061
         volumes:
-            - /c/Users/andré/desktop/web/dbwebb-kurser/ramverk2/me/redovisa
+            - ./:/home/node/app
+        command: "npm start"
     node48:
-        build: .
-        image: node:4.8
+        image: "node:4.8"
+        user: "node"
+        working_dir: /home/node/app/
         ports:
-            - "3048:3000"
+            - "3048:3048"
+        environment:
+            - DBWEBB_PORT=3048
         volumes:
-            - /c/Users/andré/desktop/web/dbwebb-kurser/ramverk2/me/redovisa
+            - ./:/home/node/app
+        command: "npm start"
