@@ -124,12 +124,13 @@ check: check-tools-js #check-tools-bash check-tools-php
 test: htmlhint stylelint eslint jsunittest
 	@$(call HELPTEXT,$@)
 	[ ! -f composer.json ] || composer validate
+	npm test
 
 
 
 # target: doc                - Generate documentation.
 .PHONY: doc
-doc: 
+doc:
 	@$(call HELPTEXT,$@)
 
 
@@ -145,6 +146,7 @@ build: test doc #theme less-compile less-minify js-minify
 .PHONY:  install
 install: prepare install-tools-js #install-tools-php install-tools-bash
 	@$(call HELPTEXT,$@)
+	[ ! -f package.json ] || npm install
 
 
 
@@ -259,9 +261,31 @@ ifneq ($(wildcard .nycrc),)
 	[ ! -d test ] || $(NYC) $(MOCHA) --reporter dot 'test/**/*.js'
 else
 	[ ! -d test ] || $(MOCHA) --reporter dot 'test/**/*.js'
-endif 
+endif
 
 
+# ------------------------------------------------------------------------
+#
+# Docker testing
+#
+
+# target: test1
+.PHONY: test1
+test1:
+	@$(call HELPTEXT,$@)
+	docker-compose run node_latest npm test
+
+# target: test2
+.PHONY: test2
+test2:
+	@$(call HELPTEXT,$@)
+	docker-compose run node_7 npm test
+
+# target: test3
+.PHONY: test3
+test3:
+	@$(call HELPTEXT,$@)
+	docker-compose run node_6 npm test
 
 
 # ------------------------------------------------------------------------
