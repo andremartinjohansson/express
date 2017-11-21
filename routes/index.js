@@ -22,4 +22,11 @@ router.get("/report", (req, res) => {
     });
 });
 
+router.get("/chat", (req, res) => {
+    res.render("chat", {
+        title: "Chat Application",
+        file: "../content/chat.md"
+    });
+});
+
 module.exports = router;
