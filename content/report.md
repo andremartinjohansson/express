@@ -114,7 +114,30 @@ Man kan starta servern med hjälp av make start-docker, men då startas den på 
 
 ## Kmom04
 
-Text here
+### Är du ny på realtidsprogrammering eller har du gjort liknande tidigare?
+
+Detta kändes helt nytt för min del. Kanske har jag stött på något liknande tidigare
+med JavaScript - om det nu kan räknas som realtidsprogrammering - men har aldrig använt web sockets eller liknande tidigare för att skapa realtidskommunikation mellan två klienter.
+
+### Hur gick det att jobba med konceptet realtidsprogrammering i webben, några reflektioner?
+
+Jag började redan i kmom02 då jag bestämde mig för att göra en chatt app. Då följde jag lite tutorials på nätet och därför började jag använda socket.io. Det gick ju bra, kändes riktigt coolt och enkelt just då.
+
+Men det var såklart innan jag kom till detta kursmomentet...
+
+### Berätta om din chatt som du integrerade i redovisa-sidan.
+
+Eftersom min applikation redan var en chatt bestämde jag mig för att helt enkelt fortsätta bygga på den med socket.io. Det gick sådär. Med socket.io kändes det svårt att fullt göra uppgiften så som det var tänkt. När det gäller applikationsprotokoll och subprotokoll var det riktigt svårt att greppa hur och vad dessa var inom socket.io. Artiklen visade i stort sätt bara hur man gör det med ws, men förklarade inte över huvud taget vad det faktiskt är för något. 
+
+Till slut tror jag att jag fick rätt på det. Som sagt byggde jag på det som jag gjorde i kmom02 och skapade en klass för servern, för att fungera bättre med testerna jag skrivit. Jag lyckades inte att testa uppkoppling och nedkoppling till websockets/chatten så det får komma senare, men jag kunde iaf ha kvar några andra tester. Det går emot att server-delen ska funka som en modul som hakar sig fast på webbservern. Så funkar det i stort sätt redan.
+
+En klient skapade jag med jQuery som laddas på den sidan chatten körs - den filen ligger i /js/socket.js. På redovisningssidan finns chatten under /chat. Där kommer man först till en sida där man kopplar upp sig till chatten med en nick. Skriv en nick och klicka på "join" så kommer man till chatten där ett meddelande visar att du har joinat chatten. Det finns en lista på alla användare som är uppkopplade för tillfället, och hur många. Man kan skriva meddelande eller lämna chatten. Klickar man bort fönstret eller uppdaterar det så kopplas användaren bort från chatten, och måste logga in igen. Servern upptäcker alltså när klienter försvinner. Meddelande presenteras till alla kopplade klienter och med ett nick framför (vem som skrev meddelandet).
+
+Jag la också en del tid på att testa mot XSS attacker. Från början var den öppen för såna attacker, nu är det inte det. Det är skyddat i fältet där man skriver en nick och i fältet där man skriver meddelande.
+
+### Berätta om den realtidsfunktionalitet du väljer att integrera i din klient/server applikation.
+
+Ja, den är ju densamma som för chatten vi gjorde. Så finns inte mycket mer att säga om det. Men jag ser fram emot att jobba med en databas i nästa kmom.
 
 ## Kmom05
 

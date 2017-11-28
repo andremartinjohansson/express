@@ -160,3 +160,83 @@ img[alt=Nodejs] {
   color: white;
   padding: 5px;
 }
+.chat-app * {
+  padding: 0;
+  box-sizing: border-box;
+}
+.chat-app .login {
+  margin: 10px;
+}
+.chat-app .login .form-control {
+  margin: 10px;
+  font-size: 14px;
+  padding: 5px;
+}
+.chat-app .login .btn.btn-default {
+  font-size: 14px;
+  padding: 5px;
+}
+.chat-app .chat {
+  display: none;
+  padding: 10px;
+}
+.chat-app .chat .online-users {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 14.58333333%;
+  margin-left: 1.04166667%;
+  margin-right: 1.04166667%;
+  padding-bottom: 20px;
+}
+.chat-app .chat h3 {
+  display: inline;
+}
+.chat-app .chat .online-count {
+  margin-left: 5px;
+}
+.chat-app .chat .list-group {
+  list-style: none;
+}
+.chat-app .chat form {
+  padding: 3px;
+  bottom: 0;
+  width: 100%;
+}
+.chat-app .chat form input {
+  padding: 10px;
+  width: 90%;
+  margin-right: 0.5%;
+}
+.chat-app .chat form button {
+  width: 9%;
+  background: #00688a;
+  border: none;
+  padding: 10px;
+  color: white;
+  text-transform: uppercase;
+}
+.chat-app .messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 40px;
+  flex: 0 0 auto;
+  width: 81.25%;
+  margin-left: 1.04166667%;
+  margin-right: 1.04166667%;
+  display: inline-block;
+  float: right;
+}
+.chat-app .messages li {
+  padding: 5px 10px;
+}
+.chat-app .messages li:nth-child(odd) {
+  background: #eee;
+}
+.chat-app .leave {
+  background-color: #00688a;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+}

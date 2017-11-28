@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 
-var app = require("./app/app");
+const ChatServer = require("./src/chatserver/chatserver");
+var http = new ChatServer().http;
 
 // Start up server
 var port = (!isNaN(process.env.DBWEBB_PORT) ? +process.env.DBWEBB_PORT : 1337);
 
-app.listen(port);
+http.listen(port);
 console.log("Express running on port " + port);

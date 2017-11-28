@@ -11,9 +11,11 @@
   "author": "André Johansson",
   "license": "MIT",
   "dependencies": {
+    "chai": "^4.1.2",
     "express": "^4.16.2",
     "jstransformer-markdown-it": "^2.0.0",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "blanket": "^1.2.3",

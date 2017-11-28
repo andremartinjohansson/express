@@ -22,10 +22,17 @@ router.get("/report", (req, res) => {
     });
 });
 
+router.get("/app", (req, res) => {
+    res.render("app", {
+        title: "Chat Application",
+        file: "../content/app.md"
+    });
+});
+
 router.get("/chat", (req, res) => {
     res.render("chat", {
-        title: "Chat Application",
-        file: "../content/chat.md"
+        title: "Chat",
+        basedir: './static/'
     });
 });
 
