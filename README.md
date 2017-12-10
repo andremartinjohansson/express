@@ -8,16 +8,6 @@ Ramverk 2 Express
 [![Scrutinizer Build](https://scrutinizer-ci.com/g/andymartinj/express/badges/build.png?b=master)](https://scrutinizer-ci.com/g/andymartinj/express/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/andymartinj/express/badge.svg?branch=master)](https://coveralls.io/github/andymartinj/express?branch=master)
 
-# bth-ramverk2
-
-[![Build Status](https://travis-ci.org/Nicklas766/bth-ramverk2.svg?branch=master)](https://travis-ci.org/Nicklas766/bth-ramverk2)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d6ec95ceea3b251a0444/maintainability)](https://codeclimate.com/github/Nicklas766/bth-ramverk2/maintainability)
-[![Docker Build Status](https://img.shields.io/badge/Docker%20Build--blue.svg)](https://cloud.docker.com/swarm/nicklas766/repository/docker/nicklas766/my_image/general)
-
-[![Build Status](https://scrutinizer-ci.com/g/Nicklas766/bth-ramverk2/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Nicklas766/bth-ramverk2/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Nicklas766/bth-ramverk2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Nicklas766/bth-ramverk2/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Nicklas766/bth-ramverk2/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Nicklas766/bth-ramverk2/?branch=master)
-
 This project uses the following:
 
 * Express.js (server)
@@ -75,7 +65,7 @@ $ npm start
 ```
 
 **Note**: You will need to install MongoDB on your system. To change which DSN to
-connect to with MongoDB, set environment variable *DBWEBB_DSN*. 
+connect to with MongoDB, set environment variable *DBWEBB_DSN*.
 
 **Note**: The default port is 1337. To change it, you need to set environment variable
 *DBWEBB_PORT*. Example, to set port to 3353:
