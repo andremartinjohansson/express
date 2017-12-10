@@ -4,16 +4,21 @@
 const path = require("path");
 var express = require("express");
 var app = express();
+var bodyParser = require('body-parser');
 
 app.set('view engine', 'pug');
 var staticFiles = path.join(__dirname, "../static");
 
 app.use(express.static(staticFiles));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Routes
 var index = require('../routes/index');
+var mongodb = require('../routes/mongodb');
 
 app.use('/', index);
+app.use('/mongodb', mongodb);
 
 // 404
 app.use((req, res, next) => {

@@ -57,3 +57,28 @@ services:
             - ./:/app/
         ports:
             - "3000:3000"
+    express:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-express
+        environment:
+            - DBWEBB_PORT=3353
+            - DBWEBB_DSN=mongodb://mongodb:27017/cars
+        volumes:
+            - ./:/app/
+            - /app/node_modules/
+        ports:
+            - 3353:3353
+        links:
+            - mongodb
+        command: "npm start"
+    mongodb:
+        image: mongo
+        container_name: "mongodb"
+        environment:
+            - MONGO_DATA_DIR=/data/db
+        volumes:
+            - ./data/db:/data/db
+        ports:
+            - 27017:27017
+        command: mongod

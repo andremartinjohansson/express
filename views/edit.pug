@@ -1,0 +1,12 @@
+extend layout.pug
+
+block main
+    main.chat-app
+    h1 Edit Car
+    form(method='post', action='/mongodb/update')
+        input(type='hidden' name='id', value= item.id)
+        input(name='make', value= item.make)
+        input(name='model', value= item.model)
+        input(name='submodel', value= item.submodel)
+        input(name='year', value= item.year)
+        button Update

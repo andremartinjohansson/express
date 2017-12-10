@@ -1,5 +1,5 @@
 $(function () {
-    const socket = io({'transports': ['websocket', 'polling']});
+    const socket = io({'transports': ['websocket', 'polling']}); //eslint-disable-line
 
     $('#messageForm').submit(function() {
         socket.emit('chat message', $('#m').val());
@@ -7,12 +7,11 @@ $(function () {
         return false;
     });
     socket.on('chat message', function(data) {
-        console.log(data);
         $('#messages').append($('<li></li>').text(data.msg).prepend($('<strong></strong>').text(data.user + " ")));
     });
 
     $('#userForm').submit(function() {
-        socket.emit('new user', $('#username').val(), function(data) {
+        socket.emit('new user', $('#username').val(), function() {
             $('#login').hide();
             $('#chat').show();
         });
@@ -21,7 +20,7 @@ $(function () {
     });
     socket.on('get users', function(data) {
         $('#users').html('');
-        for (i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             $('#users').append($('<li></li>').text(data[i]));
             $('#onlineCount').html('(' + (i+1) + ')');
         }

@@ -1,4 +1,3 @@
 less/node_modules/*
 coverage/*
-static/js/socket.js
 build/*

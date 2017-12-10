@@ -1,0 +1,44 @@
+extend layout.pug
+
+block main
+    main.crud
+        h1 Cars
+        table
+            tbody
+                tr
+                    th Make
+                    th Model
+                    th Submodel
+                    th Year
+                    th
+                    th
+                each item in items
+                    tr
+                        td= item.make
+                        td= item.model
+                        td= item.submodel
+                        td= item.year
+                        td
+                            form(method='post', action='/mongodb/delete')
+                                input(type='hidden' name='id', value= item._id)
+                                button Delete
+                        td
+                            form(method='post', action='/crud/edit')
+                                input(type='hidden' name='id', value= item._id)
+                                input(type='hidden' name='make', value= item.make)
+                                input(type='hidden' name='model', value= item.model)
+                                input(type='hidden' name='submodel', value= item.submodel)
+                                input(type='hidden' name='year', value= item.year)
+                                button Update
+        h2 Create New
+        form(method='post', action='/mongodb/insert')
+            input(name='make', placeholder='Make')
+            |
+            input(name='model', placeholder='Model')
+            |
+            input(name='submodel', placeholder='Submodel')
+            |
+            input(name='year', placeholder='Year')
+            button Create
+        form(method='post', action='/mongodb/reset')
+            button Reset Database

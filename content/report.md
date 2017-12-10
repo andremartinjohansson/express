@@ -127,7 +127,7 @@ Men det var såklart innan jag kom till detta kursmomentet...
 
 ### Berätta om din chatt som du integrerade i redovisa-sidan.
 
-Eftersom min applikation redan var en chatt bestämde jag mig för att helt enkelt fortsätta bygga på den med socket.io. Det gick sådär. Med socket.io kändes det svårt att fullt göra uppgiften så som det var tänkt. När det gäller applikationsprotokoll och subprotokoll var det riktigt svårt att greppa hur och vad dessa var inom socket.io. Artiklen visade i stort sätt bara hur man gör det med ws, men förklarade inte över huvud taget vad det faktiskt är för något. 
+Eftersom min applikation redan var en chatt bestämde jag mig för att helt enkelt fortsätta bygga på den med socket.io. Det gick sådär. Med socket.io kändes det svårt att fullt göra uppgiften så som det var tänkt. När det gäller applikationsprotokoll och subprotokoll var det riktigt svårt att greppa hur och vad dessa var inom socket.io. Artiklen visade i stort sätt bara hur man gör det med ws, men förklarade inte över huvud taget vad det faktiskt är för något.
 
 Till slut tror jag att jag fick rätt på det. Som sagt byggde jag på det som jag gjorde i kmom02 och skapade en klass för servern, för att fungera bättre med testerna jag skrivit. Jag lyckades inte att testa uppkoppling och nedkoppling till websockets/chatten så det får komma senare, men jag kunde iaf ha kvar några andra tester. Det går emot att server-delen ska funka som en modul som hakar sig fast på webbservern. Så funkar det i stort sätt redan.
 
@@ -141,7 +141,50 @@ Ja, den är ju densamma som för chatten vi gjorde. Så finns inte mycket mer at
 
 ## Kmom05
 
-Text here
+Jag har spenderat många, många timmar på att få testerna att funka. Testerna ligger under min chat applikation, jag har inte lagt till testerna på me-sidan eftersom modulerna är testade i min applikation. Jag har inte tid eller lust att göra tester då samma moduler två gånger (testerna blir lite annorlunda eftersom datan är annorlunda, så det krävs ändå en del jobb om man kopierar över testerna. Tester på chatserver i me-sidan innebär att jag måste integrera så databasen används med chatten, vilket jag redan har gjort i min applikation. Tester på databas i me-sidan innebär att jag måste ändra mina tester så de funkar med crud-datan jag använder. Som du ser blir det mycket jobb för att göra samma sak igen.).
+
+I min coverage tar jag med filer som jag faktiskt haft tid att testa. Om filer inte finns med har jag inte haft tid eller hittat ett sätt att faktiskt testa dem... Jag tar nu med min socket.js men föklara gärna varför ni vill ha med en fil som inte är testad i min coverage. Det ända det gör är att dra ner min totala code coverage. Ni säger också att min coverage ska täcka in ALLA js-filer. Vilka är ALLA? Min index.js, app.js, mina routes? Just nu känns det väldigt otydligt när det gäller vad som ska testas och vad som ska tas med i kodtäckningen. Trodde detta huvudsakligen var upp till oss själva, men tydligen inte?
+
+Jag kan inte hitta någonstans där det tydligt står vad som ska tas med i kodtäckningen, eller vilka filer som ska testas. Därför blir det förvirrande när detta påpekas i rättningen. Förklara. Gör det tydligare.
+
+Jag har uppdaterat min chat-app's readme med instruktioner för hur man startar upp den och kör tester.
+
+### Hur gick det att komma igång med databasen MongoDB?
+
+Det gick förvånansvärt bra. Lite klurigt i början att greppa hur det funkade med docker, dsn osv. Efter det gick det mycket bra när det gäller själva databasen. I allmänhet
+kändes det logiskt och enkelt i hur man jobbade mot databasen. Annorlunda från vad vi har gjort tidigare med SQL, men jag gillar det.
+
+Att sedan skapa någon sorts modul som gör att man kan kommunicera med databasen genom me-sidan var mycket svårare. Fast det hade mer och göra med den asynkrona programmeringen.
+
+### Vilken syn har du på databaser inom konceptet NoSQL?
+
+Jag ser nu varför MongoDB är så populärt. Utan ett databasschema blir det väldigt enkelt att snabbt få upp en databas som i detta fall fungerade riktigt bra med JavaScript. Det tog inte mer än fem minuter att få igång själva databasen med ett par objekt till min me-sida.
+
+Och fördelen med att inte ha ett "schema" som måste följas, är att t.ex. objekt inte behöver ha samma attribut. En ev mina bilar kan ha ett attribut "submodel" medans en annan inte har det. Det betyder att om en bilmodell inte har en submodell kan jag helt enkelt skippa det attributet. Det känns bättre än att behöva sätta det attibutet till t.ex. NULL som man troligtvis hade gjort i en relationsdatabas.
+
+Dock får jag säga att jag till vis del föredrar en databas med tables då detta känns mer organiserat och strukturerat. Möjligtvis är det enklare för en "NoSQL"-databas att bli rörigt.
+
+### Reflektera över skillnader och likheter mellan relationsdatabaser och databaser inom NoSQL.
+
+Jag gick in lite på det ovan - relationsdatabaser kan till vis del kännas mer organiserade. De har ett strukturerat upplägg som ger en bättre överblick över databasen. Dessutom, om vi tittar på själva namnet "relationsdatabaser", ser vi "relation". Till exempel en användare kan ha andra grejer kopplade till sig, som ordrar och fakturor som vi gjorde i oophp-kursen. Det är något som NoSQL saknar.
+
+Vad jag förstår så är NoSQL bättre för realtids applikationer och "big data". Där "big data" förklaras som data som är för stort och komplext för att på ett bra sätt hanteras med vanliga metoder.
+
+Och som jag nämnde tidigare har NoSQL inget schema, vilket kan vara en fördel i många lägen.
+
+### Vilka är dina tankar om asynkron programmering med JavaScript?
+
+Det var mycket svårt att komma igång med. Inte bara själva programmeringen utan också med eslint och node. Tydligen hade jag inte den senaste versionen av node på varken min Windows eller Linux, vilket skapade problem för mig innan jag förstod varför det inte funkade.
+
+Samtidigt var det svårt att skapa en modul som kunde återanvändas där async och await funkade på ett bra sätt. Jag fick ta mycket hjälp av internet och hittade till slut ett sätt som funkar rätt så bra, som en modul där jag bara kan göra require där jag vill använda den.
+
+Men till slut blev det riktigt bra. Det kändes bra med async när jag väl fick till miljön och allt.
+
+### Hur känner du för Docker och det sättet vi jobbar med tjänster i kontainrar?
+
+Sen jag gick över till min Linux maskin med Docker delen har det gått väldigt bra. Helt ärligt, när vi började med Docker tyckte jag inte om det alls, det var bara krångligt och onödigt. Men just den biten som det här kursmomentet visade - att köra mongodb i en kontainer och express i en annan och ha de prata med varandra, det kändes coolt. Jag behövde inte installera MongoDB lokalt förrän mot slutet när jag testade att starta servern utanför Docker.
+
+Dessutom, när jag sshar från min laptop till Linux maskinen kan jag enkelt starta upp servern via ssh med Docker. Då kan jag köra detach och terminalen tas inte upp av servern, så jag behöver inte ha flera terminaler kopplade via ssh. Smidigt sätt att starta upp tjänster som sen ligger och kör i bakgrunden.
 
 ## Kmom06
 
