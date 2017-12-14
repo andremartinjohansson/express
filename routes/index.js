@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 
 const dsn =  process.env.DBWEBB_DSN || "mongodb://localhost:27017/cars";
-const db = require("../src/mongodb.js").mongoDB(dsn, 'cars');
+const db = require("../src/mongodb/mongodb.js").mongoDB(dsn, 'cars');
 
 router.get("/", (req, res) => {
     res.render("home", {
