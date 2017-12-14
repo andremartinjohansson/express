@@ -188,7 +188,35 @@ Dessutom, när jag sshar från min laptop till Linux maskinen kan jag enkelt sta
 
 ## Kmom06
 
-Text here
+### Reflektera över vikten av infrastruktur för moduler för ett programmeringsspråk.
+
+Man inser verkligen vikten av det när man jobbar som vi har gjort i denna kurs. Det gör det otroligt enkelt att ladda ner och installera moduler. Utan en sån modulhantering blir det en långdragen och tråkig process varje gång man ska installera en modul.
+
+Finns det ingen infrastruktur för moduler skulle jag gissa att antalet som faktiskt använder moduler är mycket färre än om infrastrukturen fanns. Med fler användare blir utvecklare mer motiverade till att skapa och publisha moduler, och fler kanske till och med börjar använda programmeringsspråket.
+
+### Vill du ge dig på att förklara att just npm är den tjänsten som växt snabbast av de modulerkataloger som presenteras på webbplatsen “Module Counts”?
+
+Jag satt och funderade på detta tidigare och undrade varför just npm är den som ligger överst. Det enda jag kan tänka mig är att JavaScript är väldigt populärt just nu. Varför JavaScript är så trendigt just nu är en helt annan fråga, men så klart om språket ökar i populäritet så kommer antalet moduler också öka, då där är fler användare.
+
+Varför npm är mer populär än andra möjliga package managers (som Bower) kan jag inte svara på då jag inte har testat något annat än npm som jag kan jämföra med. Men en gissning är att npm hanterar på moduler på ett överlägset enklaste sätt.
+
+### Reflektera över hur arbetet gick att välja, separera, publisera och sedan åter integrera module i din applikation.
+
+Det gick mycket bra. Smärtfritt. När jag jobbade med både min chatserver-modul och databas-modul kodade jag så de skulle kunna användas som självstående moduler som man i stort sätt bara kan göra require på där man vill använda dem. Det gjorde det hela mycket enklare.
+
+Jag valde att publisha min databasmodul. Skapade först en ny mapp (me/module) där jag gjorde npm init för att komma igång. Jag kopierade över relevanta filer (source filer, testfiler, dockerfiler och andra test- och ci-filer.) från appen, gjorde en index.js för modulen och sen var det i stort sätt klart.
+
+Lite problem hade jag med npm version vid uppdatering av modulen. Alltid när npm försöker kommunicera med git får jag en error att git inte vet vem jag är (trots att min config är sarr och manuell gitting funkar hur bra som helst utan att ange login). Jag försökte få det att funka men till slut bestämde jag mig för att köra npm version utan att den taggar git-repot åt mig.
+
+Vid användning av modulen i min applikation hade jag först lite problem då jag inte riktigt hade förstått att man var tvungen att göra en index.js som exporterar modulen. När det inte funkade i min applikation förstod jag ganska snabbt att man måste kunna hämta modulen på något sätt, så det var ganska enkelt att fixa.
+
+Nu använder jag modulen i min applikation i stort sätt på samma vis som innan, men istället för require på en fil gör jag require på modulen. Så nu är det en publiserade modulen som används och de andra databasfilerna har tagits bort.
+
+### Sista uppgiften om att dokumentera och färdigställa redovisa-sidan, tog det mycket tid eller hade du allt klart?
+
+Det kändes mer eller mindre klart. Jag gjorde mycket av det i kmom05 så det var bara några grejer som jag behövde ändra på. Försökte att göra det så tydligt som möjligt med allt, speciellt default portar och hur man ändrar dem. Tycker också att jag har gjort det enkelt att förstår hur man starta upp servern i docker och sen koppla sig via webbläsaren. Med två docker-compose kommandon startar man upp databas och express, och sen är det igång.
+
+Jag tror inte att jag har missat något och personligen känns readme:n komplett. 
 
 ## Kmom07/10
 

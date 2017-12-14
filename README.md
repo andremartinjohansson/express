@@ -26,21 +26,6 @@ $ git clone https://github.com/andymartinj/express.git
 $ cd express
 ```
 
-## Testing
-
-```
-$ make test
-$ npm test
-```
-
-## Testing in docker
-
-```
-$ make test1
-$ make test2
-$ make test3
-```
-
 ## Setup with docker
 
 ```
@@ -55,7 +40,9 @@ $ docker-compose -up -d mongodb
 $ docker-compose -up -d express
 ```
 
-**Note**: You can edit the port in `docker-compose.yml`.
+Easy peasy. Then you can access the website through `http://localhost:3353/`
+
+**Note**: Default port is `3353`. You can edit the port in `docker-compose.yml`, under express then environment. *DBWEBB_PORT* is the webserver port. You can also change *DBWEBB_DSN*, if you want to use another database for example. By default it's `mongodb://mongodb:27017/cars`. But you better know what you're doing.
 
 ## Setup without docker
 
@@ -65,11 +52,26 @@ $ npm start
 ```
 
 **Note**: You will need to install MongoDB on your system. To change which DSN to
-connect to with MongoDB, set environment variable *DBWEBB_DSN*.
+connect to with MongoDB, set environment variable *DBWEBB_DSN*. Default DSN is `mongodb://localhost:27017/cars`.
 
 **Note**: The default port is 1337. To change it, you need to set environment variable
 *DBWEBB_PORT*. Example, to set port to 3353:
 
 ```
 $ export DBWEBB_PORT=3353
+```
+
+## Testing
+
+```
+$ make test
+$ npm test
+```
+
+## Testing in docker
+
+```
+$ make test1
+$ make test2
+$ make test3
 ```
