@@ -15,4 +15,4 @@ Databas kommer troligen användas för användare i framtiden.
 
 Koden finns på [GitHub](https://github.com/andymartinj/chat-app).
 
-Databasmodulen, som ansluter och kommunicerar med mongodb, är nu en npm modul som kan hittas här: [!mongo-amj](https://www.npmjs.com/package/mongo-amj) och på [!GitHub](https://github.com/andymartinj/mongo-handler)
+Databasmodulen, som ansluter och kommunicerar med mongodb, är nu en npm modul som kan hittas här: [mongo-amj](https://www.npmjs.com/package/mongo-amj) och på [GitHub](https://github.com/andymartinj/mongo-handler)

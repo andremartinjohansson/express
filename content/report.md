@@ -208,6 +208,8 @@ Jag valde att publisha min databasmodul. Skapade först en ny mapp (me/module) d
 
 Lite problem hade jag med npm version vid uppdatering av modulen. Alltid när npm försöker kommunicera med git får jag en error att git inte vet vem jag är (trots att min config är sarr och manuell gitting funkar hur bra som helst utan att ange login). Jag försökte få det att funka men till slut bestämde jag mig för att köra npm version utan att den taggar git-repot åt mig.
 
+Jag installerade moduler i min applikation genom "npm install mongo-amj --save". Ja, jag hade lite problem med namnet på modulen. Tanken var att kalla den mongo-handler men det var redan taget (vilket npm inte säger, utan det står bara att du inte har behörighet). Så för att undvika konflikter ändrade jag namnet till mongo-amj.
+
 Vid användning av modulen i min applikation hade jag först lite problem då jag inte riktigt hade förstått att man var tvungen att göra en index.js som exporterar modulen. När det inte funkade i min applikation förstod jag ganska snabbt att man måste kunna hämta modulen på något sätt, så det var ganska enkelt att fixa.
 
 Nu använder jag modulen i min applikation i stort sätt på samma vis som innan, men istället för require på en fil gör jag require på modulen. Så nu är det en publiserade modulen som används och de andra databasfilerna har tagits bort.
@@ -216,8 +218,38 @@ Nu använder jag modulen i min applikation i stort sätt på samma vis som innan
 
 Det kändes mer eller mindre klart. Jag gjorde mycket av det i kmom05 så det var bara några grejer som jag behövde ändra på. Försökte att göra det så tydligt som möjligt med allt, speciellt default portar och hur man ändrar dem. Tycker också att jag har gjort det enkelt att förstår hur man starta upp servern i docker och sen koppla sig via webbläsaren. Med två docker-compose kommandon startar man upp databas och express, och sen är det igång.
 
-Jag tror inte att jag har missat något och personligen känns readme:n komplett. 
+Jag tror inte att jag har missat något och personligen känns readme:n komplett.
 
 ## Kmom07/10
 
-Text here
+### Applikationen
+
+Jag fortsatte bygga på min chat app som jag började på i de tidigare kursmomenten, då jag inte kände mig klar med den. Tanken var att försöka göra en rätt så välfungerande chat app där man kan registrera sig och logga in med sin användare.
+
+Att göra själva chatt appen kanske inte var så svårt egentligen, så mitt fokus lades på detaljer. Det gick från en app där man bara logga in med ett nickname och skicka meddelande i real-time, till en chat som kräver registrering och som laddar gamla meddelanden från databasen, med stöd för emojis, embed image, embed video, at-mention, scroll "sensor" och mer. Lade även väldigt många timmar på felhantering och testning av appen, så att det mesta ska fungera felfritt (förhoppningsvis).
+
+Personligen tycker jag att min README är välskriven och tydlig även om där är lite mycket text på vissa ställen för reflektion. Den kan förtjäna poängen för optionella kravet 4.
+
+https://github.com/andymartinj/chat-app
+
+Notera att jag har använt make istället för "npm run" för många kommandon. Hoppas det är ok. Det står i README:n hur man göra allt.
+
+### Allmänt
+
+Det var rätt så svårt med tanke på att det var så fritt med inga direkta krav på vad eller hur mycket vi skulle göra. Jag visste att jag ville fortsätta på min chatt, men jag visste inte om det skulle vara tillräckligt. Ord som "lagom" och "välskriven" kastas runt men det betyder olika för olika personer. Jag kanske tycker att min app är grym och mer än lagom till projektet, medans rättaren tycker det motsatta. Då blir det lite svårt att veta hur man ska ta sig till väga. Dock ser jag det som positivt, för det mesta. Man lär sig av det, och jag tror det är bra att ha erfarenhet att göra något sånt här fritt när man kommer ut i "riktiga" livet.
+
+Allmänt gick det faktiskt väldigt bra att genom projektet. Visst, jag hade många motgångar när det gällde sockets, felhantering, databas och testning men genom allt så var det kul och lärorikt. Att göra själva appen tog egentligen inte så lång tid då jag redan hade gjort en stor del tidigare i kursen. Dock spenderade jag myckte tid på att leta efter features att implementera, både det som jag kunde koda själv och det som jag kunde hämta i form av moduler.
+
+Men, det som tog längst tid var absolut felhantering och unit tester. Dock känns unit testerna som en del av själva utvecklingen av appen, då man hela tiden anpassar koden man skriver så den ska vara testbar. Det är just den biten som tog väldigt lång tid för mig. Att se till att koden var testbar. Sedan att testa sockets och klienten var inte helt lätt. Lång tid tog det att få rätt på allt det där.
+
+Projektet som helhet var väldigt kul och passade perfekt i kursen. Som sagt är det ganska svårt att ha ett så fritt projekt, men det är också mycket nyttigt tror jag.
+
+### Om kursen
+
+Helt ärligt kan jag säga att det är min eller en av mina favoritkurser på dbwebb hittills. Lite frustrerande ibland med nya tekniker som Docker, men det är också otroligt kul tillfredsställande att lära sig nya såna tekniker. Att det är så fritt kan ses som både positivt och negativt. Från mitt perspektiv är det främst positivt, då man lär sig att ta sig själv fram utan att någon håller handen åt en.
+
+Enhetstester redan från början av utevecklingen var något jag sa att jag ville ha i föregående kursen. Jag lyckades inte alltid med testerna så som jag ville men det är verkligen stor skillnad på att göra testerna redan i början istället för i slutet av kursen. Enormt mycket bättre. Allmänt var allt om enhetstester riktigt bra i den här kursen.
+
+Vissa av artiklarna har varit lite flummiga, eller, jag kanske bara tyckte det för att jag hade problem med Docker på Windows. Ändå, lite frustrerande när man får errors och allt möjligt när man följer artiklen perfekt. Man blir helt vilse och är tvungen att på något sätt lösa det själv, även om man inte ens har börjat lära sig om tekniken än. Jag tror något liten förbättrning kan göras när det gäller Docker. Det är en så stor del av kursen men kan vara riktigt svårt att komma igång med. Allas miljö är olika så se till att ni kan lära ut korrekt för Windows, Linux och Mac och hjälpa till om det inte funkar för någon i deras miljö.
+
+Overall är jag mycket nöjd med kursen. Den får 9/10 av mig.
